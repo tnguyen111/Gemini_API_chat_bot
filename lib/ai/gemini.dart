@@ -7,11 +7,10 @@ import 'package:testing_responsive_gemini_image_chat/state_management/state_mana
 import '../ui/main_interface/objects/objects.dart';
 import 'package:mime/mime.dart';
 import 'package:docx_to_text/docx_to_text.dart';
-import 'package:image/image.dart' as img;
 
 final model = GenerativeModel(
   model: 'gemini-1.5-flash',
-  apiKey: 'AIzaSyA7c7Bhc2Jhs7eyno8j1Jp7WTidkXvx_j4',
+  apiKey: 'API KEY HERE',
   systemInstruction: Content.system('''
           You are a chat bot.
           The user can send you messages or files, and they can also reset your chat history.
@@ -44,7 +43,7 @@ Future<String> SendResponse(WidgetRef ref, String input) async {
     response = await chat.sendMessage(Content.text(jsonEncode(input)));
     messageSetState(ref, 2);
     geminiResponse = response.text;
-    print("Gemini reponse: " + geminiResponse);
+    print("Gemini reponse: $geminiResponse");
     messages.removeLast();
     messages.add(
       ChatMessage(messageContent: geminiResponse, messageType: "gemini"),
@@ -98,7 +97,7 @@ Future<String> sendFiles(WidgetRef ref, Uint8List input, String path) async {
       ChatMessage(messageContent: '...', messageType: "gemini"),
     );
     print(input);
-    final response = await chat.sendMessage(Content.data(mimeType!, input));
+    final response = await chat.sendMessage(Content.data(mimeType, input));
     messageSetState(ref, 2);
     geminiResponse = response.text;
     print("Gemini reponse: ${geminiResponse!}");

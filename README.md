@@ -1,16 +1,5 @@
 # testing_responsive_gemini_image_chat
 
-A new Flutter project.
+An AI Chatting App using Google Gemini API that allows user to send texts and images with Responsive UI.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Image 1](lib/assets/gemini_chat1.JPG) ![Image 2](lib/assets/gemini_chat2.JPG) ![Image 3](lib/assets/gemini_chat3.JPG)

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../message_history.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 ScrollController _scrollController = ScrollController();
 
@@ -21,7 +22,7 @@ Widget chatMessage() {
     children: <Widget>[
       ListView.builder(
         itemCount: messages.length,
-        shrinkWrap: true,
+        shrinkWrap: false,
         controller: _scrollController,
         padding: const EdgeInsets.only(top: 10, bottom: 60),
         itemBuilder: (context, index) {
@@ -68,6 +69,9 @@ Widget chatMessage() {
                             data: messages[index].messageType == "doc"
                                 ? 'File Sent'
                                 : messages[index].messageContent,
+                            onTapLink: (text, url, title) {
+                              launchUrl(Uri.parse(url!));
+                            },
                             styleSheet: MarkdownStyleSheet(
                               textScaler: const TextScaler.linear(1.2),
                             ),
